@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
-            $table->string('numero_pedido');
+            $table->integer('numero_pedido');
             $table->enum('estado', ['pagado', 'preparacion', 'listo', 'entregado']);
             $table->date('fecha');
             $table->unsignedInteger('precio_total');

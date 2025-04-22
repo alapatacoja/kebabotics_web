@@ -35,5 +35,6 @@ return [
     'num' => 'order nº',
     'qr' => "don't lose the QR code or you won't be able to pick up the order",
     'factura' => 'download bill',
-    'otro' => 'place another order'
+    'otro' => 'place another order',
+    'amigo' => 'putos guiris'
     ];

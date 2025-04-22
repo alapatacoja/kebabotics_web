@@ -35,5 +35,6 @@ return [
     'num' => 'eres el pedido nº',
     'qr' => 'no pierdas el QR o no podrás recoger el pedido',
     'factura' => 'descargar factura',
-    'otro' => 'hacer otro pedido'
+    'otro' => 'hacer otro pedido',
+    'amigo' => '¡hola amigo!'
     ];

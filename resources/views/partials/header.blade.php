@@ -1,61 +1,52 @@
-<header>
-    <div class="logo">
-        <a href="{{ route('home') }}">{{-- <span class="fa-brands fa-pinterest"></span> --}}
-            <h1><img src="/imgs/logo.png" alt="logo kebabotics"></h1>
-        </a>
+<nav>
+    <ul class="sidebar">
+        <li onclick="hidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                    viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                    <path
+                        d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                </svg></a></li>
+        <li><a href="#">{{ __('general.inicio') }}</a></li>
+        <li><a href="#">{{ __('general.pedir') }}</a></li>
+        <li><a href="@if (Config::get('languages')[App::getLocale()] == 'Español') {{ route('changelang', 'en') }}
+            @else
+                {{ route('changelang', 'es') }} @endif"><i class="fa-solid fa-language"></i>
+</a>
 
-    </div>
-    <div class="resto">
-        <div class="nav">
-            <ul>
-                <li class="idioma"><a
-                        href="@if (Config::get('languages')[App::getLocale()] == 'Español') {{ route('changelang', 'en') }}
-                @else
-                {{ route('changelang', 'es') }} @endif"><i
-                            class="fa-solid fa-language"></i>
-                        @if (Config::get('languages')[App::getLocale()] == 'Español')
-                            ES
-                        @else
-                            EN
-                            @endif
-                    </a>
+</li>
+    </ul>
+    <ul>
+        <li>
+            <a href="#">
+                <img src="imgs/kababotics_limpio.png" alt="">
+                <span class="logo-container">
+                    <span class="logo-initials">KEBABÖTICS</span>
+                    <span class="logo-full">¡Hola Amigo!</span>
+                </span>
+            </a>
+        </li>
+        <li class="hidemobile {{request()->is('/') ? 'active' : ''}}"><a href=""> {{ __('general.inicio') }}</a></li>
+        <li class="hidemobile {{request()->is('pedidos') ? 'active' : ''}}"><a href="#"> {{ __('general.pedir') }}</a></li>
+        <li class="menu" onclick="sidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                    viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                    <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                </svg></a></li>
+        <li class="hidemobile idioma"><a href="@if (Config::get('languages')[App::getLocale()] == 'Español') {{ route('changelang', 'en') }}
+                    @else
+                        {{ route('changelang', 'es') }} @endif"><i class="fa-solid fa-language"></i>
+</a>
 
-                    {{-- @foreach (Config::get('languages') as $lang => $language)
-                            <a href="{{route('changelang', $lang)}}">{{$language}}</a>                 
-                    @endforeach --}}
-                </li>
-                @if (Auth::check())
-                    <li class="icon-hover"><a href="{{ route('posts.create') }}"><i class="fa-solid fa-circle-plus"></i>
-                            {{ __('general.topost') }}</a></li>
-                    <div class="drop-acc">
-                        <li class="icon-hover"><a href="{{ route('users.show', Auth::user()) }}"><i
-                                    class="fa-solid fa-circle-user" id="drop"></i>{{ __('general.account') }}</a>
-                        </li>
-                        <li><i class="fa-solid fa-chevron-down hover"></i>
-                            <ul class="dropdown">
-                                <li style="border-radius: 20px 20px 0 0"><a
-                                        href="{{ route('users.show', Auth::user()) }}"><i class="fa-solid fa-user"></i>
-                                        {{ __('general.account') }}</a></li>
+</li>
+    </ul>
+</nav>
 
-                                <li><a href="{{ route('user.edit', Auth::user()) }}"><i class="fa-solid fa-gear"></i>
-                                        {{ __('general.settings') }}</a>
-                                </li>
+<script>
+    function sidebar() {
+        const bar = document.querySelector('.sidebar')
+        bar.style.display = 'flex'
+    }
 
-                                <li style="border-radius:  0 0 20px 20px"><a href="{{ route('logout') }}"><i
-                                            class="fa-solid fa-right-from-bracket"></i>
-                                        {{ __('general.logout') }}</a></li>
-                            </ul>
-                    </div>
-
-                    </li>
-                @else
-                    <li><a href="{{ route('login') }}" class="boton">{{ __('general.login') }}</a></li>
-                    <li><a href="{{ route('register') }}" class="boton"
-                            id="register">{{ __('general.register') }}</a></li>
-                @endif
-
-            </ul>
-        </div>
-    </div>
-</header>
-{{-- {{Config::get('languages')[App::getLocale()]}} --}}
+    function hidebar() {
+        const bar = document.querySelector('.sidebar')
+        bar.style.display = 'none'
+    }
+</script>
