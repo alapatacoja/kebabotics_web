@@ -11,6 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
+
+        Schema::create('ventanas', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+        });
+
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
             $table->integer('numero_pedido');

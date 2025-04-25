@@ -11,6 +11,7 @@ return [
     'foto' => 'añade una foto (aunque es opcional)',
     'enviar' => 'enviar',
     /*pedidos*/
+    'nuestros' => 'nuestros kebabs',
     'kpollo' => 'kebab de pollo',
     'kternera' => 'kebab de ternera',
     'kmixto' => 'kebab mixto',
@@ -20,6 +21,7 @@ return [
     'tomate' => 'tomate',
     'cebolla' => 'cebolla',
     'salsa' => 'salsa de yogur',
+    'picante' => 'salsa picante',
     'add' => 'añadir', 
     'mod' => 'modificar',
     'ped' => 'tu pedido',
@@ -27,14 +29,20 @@ return [
     'sin' => 'sin',
     'extra' => 'extra de',
     'total' => 'total',
-    'descuento' => 'descuento de bienvenida', 
+    'subtotal' => 'subtotal',
+    'descuento' => 'descuento', 
     'pagar' => 'pagar',
     'ingextra' => 'los ingredientes extra suponen un coste adicional.',
     /*pagado*/
     'operacion' => '¡operación realizada con éxito!',
     'num' => 'eres el pedido nº',
     'qr' => 'no pierdas el QR o no podrás recoger el pedido',
+    'ventana' => 'recoge tu pedido en cualquier ventanilla cuando esté listo',
+    'review' => 'dejar una reseña',
     'factura' => 'descargar factura',
     'otro' => 'hacer otro pedido',
-    'amigo' => '¡hola amigo!'
+    //factura
+    'fechafact' => 'Fecha:',
+    'numfact' => 'Pedido Nº:',
+    'titfact' => 'FACTURA',
     ];

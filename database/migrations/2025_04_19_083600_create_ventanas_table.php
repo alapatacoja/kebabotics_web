@@ -11,10 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ventanas', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        
     }
 
     /**

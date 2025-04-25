@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedInteger('tomate');
             $table->unsignedInteger('cebolla');
             $table->unsignedInteger('salsa');
+            $table->unsignedInteger('picante');
             $table->unsignedInteger('precio');
             $table->timestamps();
         });

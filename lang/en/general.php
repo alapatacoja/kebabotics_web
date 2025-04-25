@@ -11,6 +11,7 @@ return [
     'foto' => 'add a photo (although it is optional)',
     'enviar' => 'submit',
     /*pedidos*/
+    'nuestros' => 'our kebabs',
     'kpollo' => 'chicken kebab',
     'kternera' => 'beef kebab',
     'kmixto' => 'mixed kebab',
@@ -20,6 +21,7 @@ return [
     'tomate' => 'tomato',
     'cebolla' => 'onion',
     'salsa' => 'yogurt sauce',
+    'picante' => 'spicy sauce',
     'add' => 'add', 
     'mod' => 'modify',
     'ped' => 'your order',
@@ -27,14 +29,20 @@ return [
     'sin' => 'without',
     'extra' => 'extra',
     'total' => 'total',
-    'descuento' => 'welcome discount', 
+    'subtotal' => 'subtotal',
+    'descuento' => 'discount', 
     'pagar' => 'pay',
     'ingextra' => 'Extra ingredients have an additional cost.',
     /*pagado*/
     'operacion' => '¡operation completed succesfully!',
     'num' => 'order nº',
     'qr' => "don't lose the QR code or you won't be able to pick up the order",
+    'ventana' => "pick up your order at any window when it's ready",
+    'review' => 'leave a review',
     'factura' => 'download bill',
     'otro' => 'place another order',
-    'amigo' => 'putos guiris'
+    //factura
+    'fechafact' => 'Date:',
+    'numfact' => 'Order Nº:',
+    'titfact' => 'BILL',
     ];

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*colores*/
 @font-face {
   font-family: vag;
@@ -15,6 +16,9 @@ body {
   background-size: 200px;
   font-family: "Nunito", sans-serif;
 }
+body ::before {
+  background-color: rgba(200, 200, 200, 0.5);
+}
 
 nav {
   background-color: white;
@@ -29,19 +33,22 @@ nav ul {
   justify-content: flex-end;
   align-items: center;
 }
-nav li.active a {
-  color: white;
-  background-color: #f80b0f;
-  padding: 10px 30px;
-  border-radius: 100px;
-}
 nav a {
   height: 100%;
-  padding: 0px 50px;
+  padding: 1em 1.5em;
   text-decoration: none;
   display: flex;
   align-items: center;
   color: black;
+  position: relative;
+  transition: all 0.3s ease;
+}
+nav li.active a {
+  color: white;
+  background-color: #f80b0f;
+  border-radius: 100px;
+  padding: 0.5em 1.5em;
+  border: 2px solid transparent;
 }
 nav a:hover {
   color: #f80b0f;
@@ -49,10 +56,10 @@ nav a:hover {
 nav .idioma a:hover {
   color: black;
 }
-nav li:first-child {
+nav .logo {
   margin-right: auto;
 }
-nav li:first-child a {
+nav .logo a {
   padding: 10px 20px;
   display: flex;
   align-items: center;
@@ -62,7 +69,7 @@ nav li:first-child a {
   font-size: 1.5em;
   text-shadow: 1px 0 #fff, -1px 0 #fff, 0 1px #fff, 0 -1px #fff, 0.5px 0.5px #fff, -0.5px -0.5px #fff, 0.5px -0.5px #fff, -0.5px 0.5px #fff, 2px 0 #c90405, -2px 0 #c90405, 0 2px #c90405, 0 -2px #c90405, 1px 1px #c90405, -1px -1px #c90405, 1px -1px #c90405, -1px 1px #c90405;
 }
-nav li:first-child a img {
+nav .logo a img {
   width: auto;
   height: 70px;
   max-height: 60px;
@@ -77,7 +84,8 @@ nav li:first-child a img {
   vertical-align: middle;
 }
 
-.logo-initials, .logo-full {
+.logo-initials,
+.logo-full {
   position: absolute;
   top: 0;
   left: 0;
@@ -111,7 +119,7 @@ li:first-child a:hover .logo-full {
   box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
   display: none;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
 }
 .sidebar li {
@@ -119,11 +127,34 @@ li:first-child a:hover .logo-full {
   padding: 1em;
 }
 .sidebar a {
-  width: 100%;
+  width: auto;
 }
 
 .menu {
   display: none;
+}
+
+.icon {
+  font-size: x-large;
+}
+
+.carticon {
+  position: relative;
+  display: inline-block;
+}
+.carticon .carritonum {
+  position: absolute;
+  top: 1em;
+  right: 2em;
+  background-color: #f80b0f;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 850px) {
@@ -139,13 +170,6 @@ li:first-child a:hover .logo-full {
     width: 100%;
   }
 }
-svg {
-  fill: #000000;
-  position: fixed;
-  right: 0;
-  padding: 1em;
-}
-
 /*pagina inicio*/
 .imagen {
   height: 30vh;
@@ -171,6 +195,7 @@ svg {
   text-transform: uppercase;
   padding: 1rem 2rem;
   width: fit-content;
+  border-radius: 100px;
 }
 .reviews .rev-grid {
   display: grid;
@@ -188,6 +213,403 @@ svg {
 .reviews .rev-grid .rev-estrellas {
   color: #f80b0f;
   margin-bottom: 0.5rem;
+}
+
+/*pagina pedidos*/
+/* Contenedor principal */
+.kebabs {
+  margin: 0 auto;
+  padding: 1em 2em;
+}
+.kebabs h2 {
+  margin-bottom: 1em;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 2em;
+}
+.grid .kebab {
+  display: flex;
+  align-items: start;
+  justify-items: stretch;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  align-items: center;
+  border: solid black;
+}
+.grid .kebab .img {
+  flex: 0 0 15em;
+  height: 100%;
+  overflow: hidden;
+}
+.grid .kebab .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.grid .kebab .info {
+  flex: 1;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-transform: capitalize;
+}
+.grid .kebab .info .nombre {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 0 0 5px 0;
+  color: #d00;
+}
+.grid .kebab .info .ingredientes {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.4;
+}
+.grid .kebab .precio {
+  font-weight: bold;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  flex: 1;
+}
+.grid .kebab .butones {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 15px 0 0;
+  gap: 8px;
+  flex: 1;
+  align-items: center;
+}
+.grid .kebab .butones .btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.grid .kebab .butones form .btn {
+  background-color: #d00;
+  color: white;
+}
+
+/* Diseño responsive */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .kebab {
+    height: auto;
+    flex-direction: column;
+  }
+  .kebab .img {
+    flex: 0 0 200px;
+  }
+  .kebab .info {
+    padding: 15px;
+  }
+  .kebab .butones {
+    flex-direction: row;
+    padding: 0 15px 15px 15px;
+    justify-content: flex-end;
+  }
+}
+.cuadro {
+  display: flex;
+  flex-direction: row;
+  /* Ajusta según altura del header */
+  padding: 2rem;
+  box-sizing: border-box;
+  background-color: white;
+  border: solid black;
+}
+.cuadro .img {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cuadro .img img {
+  max-width: 100%;
+  max-height: 80%;
+  object-fit: contain;
+}
+.cuadro .contenido {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+.cuadro .contenido .superior {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.cuadro .contenido .superior .precio {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.cuadro .contenido .ingredientes {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.cuadro .contenido .ingredientes .ingrediente {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.cuadro .contenido .ingredientes .ingrediente img {
+  height: 2rem;
+  width: 2rem;
+  object-fit: contain;
+}
+.cuadro .contenido .ingredientes .ingrediente .btn-cambio {
+  background: #eee;
+  border: 1px solid #ccc;
+  padding: 0.2rem 0.6rem;
+  cursor: pointer;
+}
+.cuadro .contenido .btn-aceptar {
+  margin-top: 2rem;
+  align-self: flex-end;
+  padding: 0.8rem 1.5rem;
+  background-color: #009578;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.carrito {
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  border-radius: 1rem;
+}
+.carrito .cuadro {
+  padding: 0;
+  flex: 1;
+  background-color: white;
+  border: solid black;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 1em;
+}
+.carrito .cuadro .carrito-contenido {
+  flex: 1;
+  padding: 1em;
+}
+.carrito .cuadro .carrito-contenido h2 {
+  text-transform: uppercase;
+  margin-bottom: 1em;
+}
+.carrito .cuadro .carrito-contenido .producto {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1em;
+}
+.carrito .cuadro .carrito-contenido .producto .producto-info {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.carrito .cuadro .carrito-contenido .producto .producto-info .btn-eliminar {
+  padding: 1em;
+}
+.carrito .cuadro .carrito-contenido .producto .producto-info .texto {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 0 1em;
+}
+.carrito .cuadro .carrito-contenido .producto .producto-info .precio-unidad {
+  font-weight: 700;
+  font-size: x-large;
+}
+.carrito .cuadro .resumen {
+  margin: 2em 2em 1em 1em;
+  padding: 1em;
+  border-left: solid;
+  text-transform: uppercase;
+}
+.carrito .cuadro .resumen div {
+  margin: 1em 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.carrito .cuadro .resumen .descuento h3 {
+  padding-right: 2em;
+}
+.carrito .cuadro .resumen .descuento .nums {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.carrito .cuadro .resumen .descuento .nums p {
+  padding: 0.2em;
+}
+.carrito .cuadro .resumen .descuento .nums .tachado {
+  text-decoration: line-through;
+  color: #666;
+}
+
+.confirmacion {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+  margin: 2em;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.confirmacion .mensaje h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #f80b0f;
+  /* verde para éxito */
+}
+.confirmacion .detalles {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 1rem 0;
+}
+.confirmacion .detalles .derecha,
+.confirmacion .detalles .izquierda {
+  width: 48%;
+}
+.confirmacion .detalles .derecha p {
+  margin: 0.5rem 0;
+}
+.confirmacion .detalles .derecha .pedido-numero {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+.confirmacion .detalles .izquierda p {
+  margin: 0.5rem 0;
+}
+.confirmacion .detalles .izquierda .qr {
+  margin-top: 1rem;
+}
+.confirmacion .acciones {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
+}
+.confirmacion .acciones .btn {
+  background-color: #f80b0f;
+  text-decoration: none;
+  font-weight: 700;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+.confirmacion .acciones .btn:hover {
+  background-color: #c90405;
+}
+
+.review-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  gap: 3rem;
+}
+.review-container .review-image {
+  flex: 1;
+}
+.review-container .review-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.review-container .review-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.review-container .review-form label {
+  font-weight: bold;
+}
+.review-container .review-form input[type=text],
+.review-container .review-form textarea,
+.review-container .review-form input[type=file] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+.review-container .review-form .estrellas {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+.review-container .review-form .estrellas input[type=radio] {
+  display: none;
+}
+.review-container .review-form .estrellas label {
+  font-size: 2rem;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.review-container .review-form .estrellas label:hover, .review-container .review-form .estrellas label:hover ~ label,
+.review-container .review-form .estrellas label input:checked ~ label {
+  color: #ffc107;
+}
+.review-container .review-form button {
+  padding: 0.75rem;
+  background-color: #ffc107;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.review-container .review-form button:hover {
+  background-color: #e0a800;
 }
 
 /*# sourceMappingURL=inicio.css.map */

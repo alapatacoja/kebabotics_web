@@ -13,4 +13,14 @@ class Pedido extends Model
     {
         return $this->hasMany(Review::class);
     }
+
+    public function ventana()
+    {
+        return $this->belongsTo(ventana::class);
+    }
+
+    public function kebabs()
+    {
+        return $this->hasMany(Kebab::class);
+    }
 }

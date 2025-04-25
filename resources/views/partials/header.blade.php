@@ -1,41 +1,40 @@
 <nav>
     <ul class="sidebar">
-        <li onclick="hidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
-                    viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
-                    <path
-                        d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
-                </svg></a></li>
-        <li><a href="#">{{ __('general.inicio') }}</a></li>
-        <li><a href="#">{{ __('general.pedir') }}</a></li>
+        <li class="menu close" onclick="hidebar()"><a href=""><i class="fa-solid fa-xmark"></a></i></li>
+        <li><a href="{{ route('home') }}">{{ __('general.inicio') }}</a></li>
+        <li><a href="{{ route('pedido.index') }}">{{ __('general.pedir') }}</a></li>
         <li><a href="@if (Config::get('languages')[App::getLocale()] == 'Español') {{ route('changelang', 'en') }}
             @else
                 {{ route('changelang', 'es') }} @endif"><i class="fa-solid fa-language"></i>
-</a>
+            </a>
 
-</li>
+        </li>
     </ul>
     <ul>
-        <li>
-            <a href="#">
-                <img src="imgs/kababotics_limpio.png" alt="">
+        <li class="logo">
+            <a href="{{ route('home') }}">
+                <img src="/imgs/kababotics_limpio.png" alt="">
                 <span class="logo-container">
                     <span class="logo-initials">KEBABÖTICS</span>
                     <span class="logo-full">¡Hola Amigo!</span>
                 </span>
             </a>
         </li>
-        <li class="hidemobile {{request()->is('/') ? 'active' : ''}}"><a href=""> {{ __('general.inicio') }}</a></li>
-        <li class="hidemobile {{request()->is('pedidos') ? 'active' : ''}}"><a href="#"> {{ __('general.pedir') }}</a></li>
-        <li class="menu" onclick="sidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
-                    viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
-                    <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
-                </svg></a></li>
-        <li class="hidemobile idioma"><a href="@if (Config::get('languages')[App::getLocale()] == 'Español') {{ route('changelang', 'en') }}
+        <li class="hidemobile {{request()->is('/') ? 'active' : ''}}"><a href="{{ route('home') }}"> {{ __('general.inicio') }}</a></li>
+        <li class="hidemobile {{request()->is('pedido') ? 'active' : ''}}"><a href="{{ route('pedido.index') }}"> {{ __('general.pedir') }}</a></li>
+        <li class="hidemobile icon"><a href="{{route('pedido.carrito')}}" class="carticon"><i class="fa-solid fa-cart-shopping"></i>
+        @if(session('carrito') && count(session('carrito')) > 0)
+            <span class="carritonum">{{count(session('carrito'))}}</span>
+        @endif
+        </a></li>
+        <li class="hidemobile icon"><a href="@if (Config::get('languages')[App::getLocale()] == 'Español') {{ route('changelang', 'en') }}
                     @else
                         {{ route('changelang', 'es') }} @endif"><i class="fa-solid fa-language"></i>
-</a>
+        </a>
 
-</li>
+        </li>
+        <li class="menu" onclick="sidebar()"><i class="fa-solid fa-bars"></i></li>
+        
     </ul>
 </nav>
 
