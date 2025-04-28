@@ -569,6 +569,8 @@ li:first-child a:hover .logo-full {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  /* Color estrellas seleccionadas y anteriores */
+  /* Efecto hover */
 }
 .review-container .review-form label {
   font-weight: bold;
@@ -581,35 +583,32 @@ li:first-child a:hover .logo-full {
   border-radius: 0.5rem;
   font-size: 1rem;
 }
-.review-container .review-form .estrellas {
+.review-container .review-form .rating-container {
+  margin-bottom: 1.5rem;
+}
+.review-container .review-form .star-rating {
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-start;
-}
-.review-container .review-form .estrellas input[type=radio] {
-  display: none;
-}
-.review-container .review-form .estrellas label {
+  flex-direction: row-reverse; /* Invierte el orden para el efecto hover */
+  justify-content: flex-end; /* Alinea a la izquierda */
   font-size: 2rem;
-  color: #ccc;
-  cursor: pointer;
-  transition: color 0.3s;
+  line-height: 1;
 }
-.review-container .review-form .estrellas label:hover, .review-container .review-form .estrellas label:hover ~ label,
-.review-container .review-form .estrellas label input:checked ~ label {
+.review-container .review-form .star-rating input {
+  display: none; /* Oculta los radio buttons */
+}
+.review-container .review-form .star-rating label {
+  color: #ddd; /* Color de estrellas no seleccionadas */
+  cursor: pointer;
+  padding: 0 3px;
+  transition: color 0.2s ease;
+}
+.review-container .review-form .star-rating input:checked ~ label,
+.review-container .review-form .star-rating input:checked ~ label ~ label {
+  color: #ffc107; /* Color amarillo para estrellas seleccionadas */
+}
+.review-container .review-form .star-rating label:hover,
+.review-container .review-form .star-rating label:hover ~ label {
   color: #ffc107;
-}
-.review-container .review-form button {
-  padding: 0.75rem;
-  background-color: #ffc107;
-  border: none;
-  border-radius: 0.5rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-.review-container .review-form button:hover {
-  background-color: #e0a800;
 }
 
 /*# sourceMappingURL=inicio.css.map */

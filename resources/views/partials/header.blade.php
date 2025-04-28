@@ -3,6 +3,13 @@
         <li class="menu close" onclick="hidebar()"><a href=""><i class="fa-solid fa-xmark"></a></i></li>
         <li><a href="{{ route('home') }}">{{ __('general.inicio') }}</a></li>
         <li><a href="{{ route('pedido.index') }}">{{ __('general.pedir') }}</a></li>
+        <li><a href="{{ route('instrucciones') }}">{{ __('general.instrucciones') }}</a></li>
+        <li><a href="{{ route('sobrenosotros') }}">{{ __('general.sobrenosotros') }}</a></li>
+        <li><a href="{{route('pedido.carrito')}}" class="carticon"><i class="fa-solid fa-cart-shopping"></i>
+            @if(session('carrito') && count(session('carrito')) > 0)
+                <span class="carritonum">{{count(session('carrito'))}}</span>
+            @endif
+            </a></li>
         <li><a href="@if (Config::get('languages')[App::getLocale()] == 'Español') {{ route('changelang', 'en') }}
             @else
                 {{ route('changelang', 'es') }} @endif"><i class="fa-solid fa-language"></i>
@@ -12,7 +19,7 @@
     </ul>
     <ul>
         <li class="logo">
-            <a href="{{ route('home') }}">
+            <a href="{{ route('sobrenosotros') }}">
                 <img src="/imgs/kababotics_limpio.png" alt="">
                 <span class="logo-container">
                     <span class="logo-initials">KEBABÖTICS</span>
@@ -22,6 +29,7 @@
         </li>
         <li class="hidemobile {{request()->is('/') ? 'active' : ''}}"><a href="{{ route('home') }}"> {{ __('general.inicio') }}</a></li>
         <li class="hidemobile {{request()->is('pedido') ? 'active' : ''}}"><a href="{{ route('pedido.index') }}"> {{ __('general.pedir') }}</a></li>
+        <li class="hidemobile {{request()->is('instrucciones') ? 'active' : ''}}"><a href="{{ route('instrucciones') }}"> {{ __('general.instrucciones') }}</a></li>
         <li class="hidemobile icon"><a href="{{route('pedido.carrito')}}" class="carticon"><i class="fa-solid fa-cart-shopping"></i>
         @if(session('carrito') && count(session('carrito')) > 0)
             <span class="carritonum">{{count(session('carrito'))}}</span>

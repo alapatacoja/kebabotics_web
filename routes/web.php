@@ -52,3 +52,10 @@ Route::get('/reviews/{id}', [ReviewController::class, 'create'])->name('review.c
 
 //guardar reviews
 Route::post('reviews/store', [ReviewController::class, 'store'])->name('review.store');
+
+//instrucciones
+Route::get('/instrucciones', [HomeController::class, 'instrucciones'])->name('instrucciones');
+
+//sobre nosotros
+Route::get('/kebabotics', [HomeController::class, 'sobrenosotros'])->name('sobrenosotros');
+

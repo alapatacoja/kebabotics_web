@@ -680,41 +680,40 @@ li:first-child a:hover .logo-full {
             font-size: 1rem;
         }
 
-        .estrellas {
+        .rating-container {
+            margin-bottom: 1.5rem;
+        }
+        
+        .star-rating {
             display: flex;
-            flex-direction: row-reverse;
-            justify-content: flex-start;
-
-            input[type="radio"] {
-                display: none;
-            }
-
-            label {
-                font-size: 2rem;
-                color: #ccc;
-                cursor: pointer;
-                transition: color 0.3s;
-
-                &:hover,
-                &:hover ~ label,
-                input:checked ~ label {
-                    color: #ffc107;
-                }
-            }
+            flex-direction: row-reverse; /* Invierte el orden para el efecto hover */
+            justify-content: flex-end; /* Alinea a la izquierda */
+            font-size: 2rem;
+            line-height: 1;
         }
-
-        button {
-            padding: 0.75rem;
-            background-color: #ffc107;
-            border: none;
-            border-radius: 0.5rem;
-            font-weight: bold;
+        
+        .star-rating input {
+            display: none; /* Oculta los radio buttons */
+        }
+        
+        .star-rating label {
+            color: #ddd; /* Color de estrellas no seleccionadas */
             cursor: pointer;
-            transition: background-color 0.3s;
-
-            &:hover {
-                background-color: #e0a800;
-            }
+            padding: 0 3px;
+            transition: color 0.2s ease;
         }
+        
+        /* Color estrellas seleccionadas y anteriores */
+        .star-rating input:checked ~ label,
+        .star-rating input:checked ~ label ~ label {
+            color: #ffc107; /* Color amarillo para estrellas seleccionadas */
+        }
+        
+        /* Efecto hover */
+        .star-rating label:hover,
+        .star-rating label:hover ~ label {
+            color: #ffc107;
+        }
+        
     }
 }

@@ -9,6 +9,7 @@ return [
     'nombre' =>  'name', 
     'texto' => 'describe your experience with KEBABÖTICS',
     'foto' => 'add a photo (although it is optional)',
+    'puntuacion'=>'score',
     'enviar' => 'submit',
     /*pedidos*/
     'nuestros' => 'our kebabs',

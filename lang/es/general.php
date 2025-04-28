@@ -3,12 +3,15 @@ return [
     /* inicio */
     'inicio' => 'inicio',
     'pedir' => 'haz tu pedido', 
+    'instrucciones' => 'instrucciones', 
+    'sobrenosotros' => 'sobre nosotros', 
     'clientes' => 'lo que opinan nuestros clientes',
     /*reviews*/
     'opi'=>'tu opinión nos ayuda a mejorar',
     'nombre' =>  'nombre', 
     'texto' => 'describe tu experiencia con KEBABÖTICS',
     'foto' => 'añade una foto (aunque es opcional)',
+    'puntuacion'=>'puntuación',
     'enviar' => 'enviar',
     /*pedidos*/
     'nuestros' => 'nuestros kebabs',

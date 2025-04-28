@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Review;
+use App\Models\Pedido;
+use Carbon\Carbon;
 class ReviewController extends Controller
 {
     /**
@@ -21,14 +23,18 @@ class ReviewController extends Controller
     {
         $review = new Review();
         $review->nombre = $request->get('nombre');
-        $review->text = $request->get('text');
+        $review->comentario = $request->get('text');
         $review->puntuacion = $request->get('puntuacion');
         $review->pedido_id = $request->get('pedido_id');
 
         
-        // Obtener fecha del pedido
         $pedido = Pedido::find($review->pedido_id);
-        $fecha = Carbon::parse($pedido->fecha)->format('Y-m-d');
+
+        if ($pedido) {
+            $fecha = Carbon::parse($pedido->fecha)->format('Y-m-d');
+        } else {
+            $fecha = 'Fecha desconocida'; // O pon un valor por defecto
+        }
 
         if($request->hasFile('photo'))
         {
