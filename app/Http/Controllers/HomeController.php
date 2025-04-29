@@ -16,7 +16,7 @@ class HomeController extends Controller
     {
         $reviews = Review::with('pedido')
                     ->latest()
-                    ->take(6) // Mostrar 6 reviews
+                    ->take(4) // Mostrar 6 reviews
                     ->get();
 
         return view('home', compact('reviews'));

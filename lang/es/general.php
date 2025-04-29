@@ -3,6 +3,7 @@ return [
     /* inicio */
     'inicio' => 'inicio',
     'pedir' => 'haz tu pedido', 
+    'slogan' =>'Pide. Escanea. Disfruta.', 
     'instrucciones' => 'instrucciones', 
     'sobrenosotros' => 'sobre nosotros', 
     'clientes' => 'lo que opinan nuestros clientes',
@@ -48,4 +49,10 @@ return [
     'fechafact' => 'Fecha:',
     'numfact' => 'Pedido Nº:',
     'titfact' => 'FACTURA',
+    'paso1_titulo' => 'Pide',
+    'paso1_descripcion' => 'Selecciona tus kebabs favoritos y completa el pago en nuestra web.',
+    'paso2_titulo' => 'Escanea',
+    'paso2_descripcion' => 'Recibirás un QR con el que recoger tu pedido cuando esté listo.',
+    'paso3_titulo' => 'Disfruta',
+    'paso3_descripcion' => 'Escanea el QR en nuestro local y recoge tus kebabs recién hechos.',
     ];

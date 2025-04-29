@@ -1,8 +1,11 @@
 <?php
 return [
-    /* header */
+    /* inicio */
     'inicio' => 'home',
     'pedir' => 'place your order', 
+    'slogan' =>'Order. Scan. Enjoy.', 
+    'instrucciones' => 'instructions', 
+    'sobrenosotros' => 'about us', 
     'clientes' => 'what our customers say',
     /*reviews*/
     'opi'=>'your opinion helps us improve',
@@ -46,4 +49,10 @@ return [
     'fechafact' => 'Date:',
     'numfact' => 'Order Nº:',
     'titfact' => 'BILL',
+    'paso1_titulo' => 'Order',
+    'paso1_descripcion' => 'Select your favorite kebabs and complete payment on our website.',
+    'paso2_titulo' => 'Scan',
+    'paso2_descripcion' => "You'll receive a QR code to pick up your order when it's ready.",
+    'paso3_titulo' => 'Enjoy',
+    'paso3_descripcion' => 'Scan the QR at our location and collect your freshly made kebabs.',
     ];

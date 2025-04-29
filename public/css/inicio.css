@@ -5,6 +5,9 @@
   src: url(/fonts/VAGRoundedBlack.ttf);
   font-weight: bold;
 }
+/*------------------------------------------------------------------------------------*/
+/*GENERAL-----------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------*/
 * {
   margin: 0;
   padding: 0;
@@ -15,9 +18,6 @@ body {
   background-image: url(/imgs/fondo.png);
   background-size: 200px;
   font-family: "Nunito", sans-serif;
-}
-body ::before {
-  background-color: rgba(200, 200, 200, 0.5);
 }
 
 nav {
@@ -77,11 +77,39 @@ nav .logo a img {
   margin-right: 0.5em;
 }
 
+nav.inicio {
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+nav.inicio a:hover {
+  color: white;
+}
+nav.inicio li:first-child a:hover {
+  color: #c90405;
+}
+nav.inicio.scrolled {
+  background-color: white;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+nav.inicio.scrolled a:hover {
+  color: #f80b0f;
+}
+nav.inicio.scrolled li.active a:hover {
+  color: white;
+}
+
 .logo-container {
   display: inline-block;
   position: relative;
   height: 1em;
   vertical-align: middle;
+  color: #c90405;
 }
 
 .logo-initials,
@@ -101,11 +129,13 @@ nav .logo a img {
 li:first-child a:hover .logo-initials {
   opacity: 0;
   transform: translateX(-10px) scaleX(0.8);
+  color: #c90405;
 }
 
 li:first-child a:hover .logo-full {
   opacity: 1;
   transform: translateX(0) scaleX(1);
+  color: #c90405;
 }
 
 .sidebar {
@@ -119,19 +149,42 @@ li:first-child a:hover .logo-full {
   box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
   display: none;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
+  padding-top: 20px;
 }
 .sidebar li {
   width: 100%;
   padding: 1em;
+  text-align: left;
+  align-items: center;
+  display: flex;
 }
 .sidebar a {
-  width: auto;
+  width: 100%;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .menu {
   display: none;
+  padding: 1em;
+}
+
+.close {
+  align-self: flex-end;
+  width: auto !important;
+  padding: 0 20px 20px 20px !important;
+  margin-left: auto;
+}
+.close a {
+  padding: 0;
+  font-size: 1.5em;
+}
+.close a i {
+  transition: transform 0.3s ease;
 }
 
 .icon {
@@ -140,7 +193,6 @@ li:first-child a:hover .logo-full {
 
 .carticon {
   position: relative;
-  display: inline-block;
 }
 .carticon .carritonum {
   position: absolute;
@@ -157,30 +209,115 @@ li:first-child a:hover .logo-full {
   justify-content: center;
 }
 
-@media (max-width: 850px) {
+.sidebar {
+  transition: transform 0.3s ease;
+  transform: translateX(100%);
+  display: flex !important;
+  padding-left: 2em;
+}
+.sidebar .carticon {
+  position: relative;
+  width: auto;
+}
+.sidebar .carticon .carritonum {
+  position: absolute;
+  right: 0em;
+  background-color: #f80b0f;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar.active {
+  transform: translateX(0);
+}
+
+.sidebar-close i {
+  transition: transform 0.3s ease;
+}
+
+.sidebar-close:hover i {
+  transform: rotate(90deg);
+}
+
+@media (max-width: 950px) {
+  .sidebar {
+    display: none;
+  }
+  .sidebar.active {
+    display: flex;
+  }
   .hidemobile {
     display: none;
   }
   .menu {
     display: block;
   }
+  .close {
+    padding-left: 1.5em;
+  }
 }
-@media (max-width: 500px) {
+@media (min-width: 951px) {
+  .sidebar {
+    display: none !important;
+  }
+}
+@media (max-width: 550px) {
   .sidebar {
     width: 100%;
   }
 }
-/*pagina inicio*/
+/*------------------------------------------------------------------------------------*/
+/*INICIO------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------*/
 .imagen {
-  height: 30vh;
-  overflow: hidden;
+  height: 100vh;
   position: relative;
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
-.imagen img {
+.imagen .backvideo {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  z-index: -1;
+}
+.imagen .content {
+  text-align: start;
+  z-index: 1;
+}
+.imagen .content h1 {
+  font-size: 5em;
+  color: white;
+  font-weight: 600;
+}
+.imagen .content a {
+  text-decoration: none;
+  display: inline-block;
+  color: white;
+  font-size: 24px;
+  border: 2px solid white;
+  padding: 0.5em 2em;
+  border-radius: 50px;
+  margin-top: 1em;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+.imagen .content a:hover {
+  background-color: white;
+  /* el botón se vuelve blanco */
+  color: black;
 }
 
 .reviews {
@@ -199,24 +336,60 @@ li:first-child a:hover .logo-full {
 }
 .reviews .rev-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
   gap: 1.5rem;
+}
+@media (max-width: 950px) {
+  .reviews .rev-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 660px) {
+  .reviews .rev-grid {
+    grid-template-columns: 1fr;
+  }
 }
 .reviews .rev-grid .rev-cuadro {
   background-color: white;
-  padding: 1.5rem;
   border: solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-overflow: ellipsis;
+  white-space: wrap;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 15px;
 }
-.reviews .rev-grid .rev-cuadro p {
-  padding: 0.5rem;
+.reviews .rev-grid .rev-cuadro .textreview {
+  padding: 1.5em;
+  word-break: break-word;
 }
-.reviews .rev-grid .rev-estrellas {
+.reviews .rev-grid .rev-cuadro .textreview .nombre {
+  text-transform: uppercase;
+  font-size: large;
+}
+.reviews .rev-grid .rev-cuadro .textreview .rev-estrellas {
   color: #f80b0f;
-  margin-bottom: 0.5rem;
+  margin: 0.5rem 0em 1.5em 0em;
+}
+.reviews .rev-grid .rev-cuadro .textreview .comentario {
+  text-transform: capitalize;
+}
+.reviews .rev-grid .rev-cuadro .revimg {
+  width: 100%;
+  overflow: hidden;
+  height: 10em;
+  padding: 1em 0 0 0;
+}
+.reviews .rev-grid .rev-cuadro .revimg img {
+  width: 100%;
 }
 
-/*pagina pedidos*/
-/* Contenedor principal */
+/*------------------------------------------------------------------------------------*/
+/*PEDIDOS-----------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------*/
 .kebabs {
   margin: 0 auto;
   padding: 1em 2em;
@@ -331,10 +504,12 @@ li:first-child a:hover .logo-full {
     justify-content: flex-end;
   }
 }
+/*------------------------------------------------------------------------------------*/
+/*MODIFICAR-----------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------*/
 .cuadro {
   display: flex;
   flex-direction: row;
-  /* Ajusta según altura del header */
   padding: 2rem;
   box-sizing: border-box;
   background-color: white;
@@ -401,6 +576,9 @@ li:first-child a:hover .logo-full {
   cursor: pointer;
 }
 
+/*------------------------------------------------------------------------------------*/
+/*CARRITO-----------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------*/
 .carrito {
   padding: 2rem;
   display: flex;
@@ -481,6 +659,9 @@ li:first-child a:hover .logo-full {
   color: #666;
 }
 
+/*------------------------------------------------------------------------------------*/
+/*PAGADO------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------*/
 .confirmacion {
   display: flex;
   flex-direction: column;
@@ -548,6 +729,9 @@ li:first-child a:hover .logo-full {
   background-color: #c90405;
 }
 
+/*------------------------------------------------------------------------------------*/
+/*REVIEWS-----------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------*/
 .review-container {
   display: flex;
   justify-content: center;
@@ -588,27 +772,99 @@ li:first-child a:hover .logo-full {
 }
 .review-container .review-form .star-rating {
   display: flex;
-  flex-direction: row-reverse; /* Invierte el orden para el efecto hover */
-  justify-content: flex-end; /* Alinea a la izquierda */
+  flex-direction: row-reverse;
+  /* Invierte el orden para el efecto hover */
+  justify-content: flex-end;
+  /* Alinea a la izquierda */
   font-size: 2rem;
   line-height: 1;
 }
 .review-container .review-form .star-rating input {
-  display: none; /* Oculta los radio buttons */
+  display: none;
+  /* Oculta los radio buttons */
 }
 .review-container .review-form .star-rating label {
-  color: #ddd; /* Color de estrellas no seleccionadas */
+  color: #ddd;
+  /* Color de estrellas no seleccionadas */
   cursor: pointer;
   padding: 0 3px;
   transition: color 0.2s ease;
 }
 .review-container .review-form .star-rating input:checked ~ label,
 .review-container .review-form .star-rating input:checked ~ label ~ label {
-  color: #ffc107; /* Color amarillo para estrellas seleccionadas */
+  color: #ffc107;
+  /* Color amarillo para estrellas seleccionadas */
 }
 .review-container .review-form .star-rating label:hover,
 .review-container .review-form .star-rating label:hover ~ label {
   color: #ffc107;
+}
+
+.roadmap-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin: 3rem;
+  margin-top: 5em;
+}
+
+.roadmap-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 0 15px;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  background-color: #f80b0f;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.step-content {
+  text-align: center;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.step-content h3 {
+  color: #f80b0f;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+.step-arrow {
+  margin: 0 2em;
+  color: #f80b0f;
+  font-size: xx-large;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .roadmap-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .roadmap-step {
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 300px;
+  }
+  .step-arrow {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=inicio.css.map */

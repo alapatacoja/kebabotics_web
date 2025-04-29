@@ -36,12 +36,13 @@ class ReviewController extends Controller
             $fecha = 'Fecha desconocida'; // O pon un valor por defecto
         }
 
-        if($request->hasFile('photo'))
+        if($request->hasFile('foto'))
         {
-            $file = $request->file('photo');
+            $file = $request->file('foto');
             $name = $fecha . '_' . $review->pedido_id . '.png';
             $file->storeAs('/public/reviewfiles/' . $name);
         }
+
         $review->save();
         return redirect()->route('home');
     }
