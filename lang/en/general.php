@@ -37,6 +37,7 @@ return [
     'descuento' => 'discount', 
     'pagar' => 'pay',
     'ingextra' => 'Extra ingredients have an additional cost.',
+    'vacio' => 'The cart is currently empty. Try adding something: ',
     /*pagado*/
     'operacion' => '¡operation completed succesfully!',
     'num' => 'order nº',
@@ -55,7 +56,7 @@ return [
     'paso2_descripcion' => "You'll receive a QR code to pick up your order when it's ready.",
     'paso3_titulo' => 'Enjoy',
     'paso3_descripcion' => 'Scan the QR at our location and collect your freshly made kebabs.',
-'equipo' => 'our team', 
+    'equipo' => 'our team', 
     'quees' => 'What is KEBABÖTICS?',
     'descripcion1' => 'We are a team of students passionate about technology, automation, and good food (yes, kebabs too). Kebabotics was born as an academic project with a clear goal: to bring industrial robotics to everyday life in a creative, efficient, and fun way.',
     'descripcion2' => 'Our vision: To transform the fast food industry through sustainable, hygienic, and efficient robotic solutions.',

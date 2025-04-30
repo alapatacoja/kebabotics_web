@@ -1,8 +1,8 @@
 @extends('layout')
 
 @section('content')
-    
         <div class="grid">
+            <h2>{{__('general.nuestros')}}</h2>
             <div class="kebab">
                 <div class="img"><img src="imgs/pollo.png" alt="kebab de pollo"></div>
                 <div class="info">

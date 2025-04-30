@@ -400,21 +400,16 @@ li:first-child a:hover .logo-full {
 /*------------------------------------------------------------------------------------*/
 /*PEDIDOS-----------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------*/
-.kebabs {
-  margin: 0 auto;
-  padding: 1em 2em;
-}
-.kebabs h2 {
-  margin-bottom: 1em;
-  font-size: 2rem;
-  text-transform: uppercase;
-}
-
 .grid {
   display: flex;
   flex-direction: column;
   gap: 1em;
   padding: 2em;
+}
+.grid h2 {
+  text-transform: uppercase;
+  font-size: xx-large;
+  margin: 1em auto;
 }
 .grid .kebab {
   display: flex;

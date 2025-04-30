@@ -37,6 +37,7 @@ return [
     'descuento' => 'descuento', 
     'pagar' => 'pagar',
     'ingextra' => 'los ingredientes extra suponen un coste adicional.',
+    'vacio' => 'El carrito está vacío actualmente. ¿Y si añadimos algo?: ',
     /*pagado*/
     'operacion' => '¡operación realizada con éxito!',
     'num' => 'eres el pedido nº',
