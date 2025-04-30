@@ -55,4 +55,9 @@ return [
     'paso2_descripcion' => 'Recibirás un QR con el que recoger tu pedido cuando esté listo.',
     'paso3_titulo' => 'Disfruta',
     'paso3_descripcion' => 'Escanea el QR en nuestro local y recoge tus kebabs recién hechos.',
+    'equipo' => 'nuestro equipo', 
+    'quees' => '¿Qué es KEBABÖTICS?',
+    'descripcion1' => 'Somos un equipo de estudiantes apasionadas por la tecnología, la automatización y la buena comida (sí, el kebab también cuenta). Kebabotics nació como un proyecto académico con un objetivo claro: llevar la robótica industrial a un entorno cotidiano de forma creativa, eficiente y divertida.',
+    'descripcion2' => 'Nuestra visión: Transformar la industria de la comida rápida a través de soluciones robóticas sostenibles, higiénicas y eficientes.',
+    'swiper' => 'swiper no robes (nuestro trabajo porfi)',
     ];
