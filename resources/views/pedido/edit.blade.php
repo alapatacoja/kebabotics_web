@@ -4,7 +4,7 @@
     <form action="{{ route('pedido.update') }}" method="POST">
         @csrf
         <input type="hidden" name="carne" value="{{ $kebab }}">
-        <div class="cuadro">
+        <div class="editaringredientes">
             <div class="img">
                 <img src="{{ asset('imgs/' . $kebab . '.png') }}" alt="kebab de {{ $kebab }}">
             </div>
@@ -22,18 +22,24 @@
                         <div class="ingrediente">
                             <img src="{{ asset('imgs/' . $ing . '.png') }}" alt="{{ $ing }}">
                             <span>{{ __('general.' . $ing) }}</span>
-                            <button type="button" class="btn-cambio"
-                                onclick="cambiarCantidad('{{ $ing }}', -1)">-</button>
-                            <span id="cantidad-{{ $ing }}">1</span>
-                            <button type="button" class="btn-cambio"
-                                onclick="cambiarCantidad('{{ $ing }}', 1)">+</button>
-                            <input type="hidden" name="{{ $ing }}" id="input-{{ $ing }}"
-                                value="1">
+                            <div class="addbtn">
+                                <button type="button" class="btn-cambio" onclick="cambiarCantidad('{{ $ing }}', -1)">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <span id="cantidad-{{ $ing }}">1</span>
+                                <button type="button" class="btn-cambio" onclick="cambiarCantidad('{{ $ing }}', 1)">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <input type="hidden" name="{{ $ing }}" id="input-{{ $ing }}" value="1">
                         </div>
                     @endforeach
                 </div>
                 <input type="hidden" id="preciohidden" value="5" name="precio">
-                <button class="btn-aceptar" type="submit">{{ __('general.add') }}</button>
+                <button class="btn-aceptar" type="submit">
+                    <i class="fas fa-check-circle"></i>
+                    {{ __('general.add') }}
+                </button>
             </div>
         </div>
     </form>
@@ -58,17 +64,11 @@
                 extras += Math.max(0, parseInt(document.getElementById('cantidad-{{ $ing }}').innerText) - 1);
             @endforeach
 
-            // Actualizar precio en la vista
             const precioTotal = precioBase + extras;
             document.getElementById('precio').innerText = precioTotal + '€';
-            
-            // Pasar el precio al campo oculto
             document.getElementById('preciohidden').value = precioTotal;
         }
     
         document.addEventListener('DOMContentLoaded', calcularPrecio);
     </script>
-
 @endsection
-
-

@@ -37,7 +37,7 @@ return [
     'descuento' => 'discount', 
     'pagar' => 'pay',
     'ingextra' => 'Extra ingredients have an additional cost.',
-    'vacio' => 'The cart is currently empty. Try adding something: ',
+    'vacio' => "The cart is currently empty.\nTry adding something.",
     /*pagado*/
     'operacion' => '¡operation completed succesfully!',
     'num' => 'order nº',
@@ -60,5 +60,8 @@ return [
     'quees' => 'What is KEBABÖTICS?',
     'descripcion1' => 'We are a team of students passionate about technology, automation, and good food (yes, kebabs too). Kebabotics was born as an academic project with a clear goal: to bring industrial robotics to everyday life in a creative, efficient, and fun way.',
     'descripcion2' => 'Our vision: To transform the fast food industry through sustainable, hygienic, and efficient robotic solutions.',
-    'swiper' => "swiper don't swipe (our project please)"
+    'swiper' => "swiper don't swipe (our project please)",
+    'gracias' => 'thank you for trusting in KEBABÖTICS',
+    'ej_nombre' => 'Chris P. Bacon',
+    'ej_review' => 'Tell us your experience...',
 ];

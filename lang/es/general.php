@@ -37,7 +37,7 @@ return [
     'descuento' => 'descuento', 
     'pagar' => 'pagar',
     'ingextra' => 'los ingredientes extra suponen un coste adicional.',
-    'vacio' => 'El carrito está vacío actualmente. ¿Y si añadimos algo?: ',
+    'vacio' => "El carrito está vacío actualmente.\n¿Y si añadimos algo?",
     /*pagado*/
     'operacion' => '¡operación realizada con éxito!',
     'num' => 'eres el pedido nº',
@@ -61,4 +61,8 @@ return [
     'descripcion1' => 'Somos un equipo de estudiantes apasionadas por la tecnología, la automatización y la buena comida (sí, el kebab también cuenta). Kebabotics nació como un proyecto académico con un objetivo claro: llevar la robótica industrial a un entorno cotidiano de forma creativa, eficiente y divertida.',
     'descripcion2' => 'Nuestra visión: Transformar la industria de la comida rápida a través de soluciones robóticas sostenibles, higiénicas y eficientes.',
     'swiper' => 'swiper no robes (nuestro trabajo porfi)',
+    'gracias' => 'gracias por confiar en KEBABÖTICS', 
+    'ej_nombre' => 'Elvis Tek',
+    'ej_review' => 'Cuéntanos tu experiencia...',
+     
     ];
