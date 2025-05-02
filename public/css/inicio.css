@@ -303,7 +303,7 @@ li:first-child a:hover .logo-full {
   z-index: -1;
 }
 .imageninicio .content {
-  text-align: start;
+  text-align: center;
   z-index: 1;
 }
 .imageninicio .content h1 {

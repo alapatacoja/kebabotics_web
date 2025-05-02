@@ -9,11 +9,10 @@
     <div class="header">
         <div class="header-left">
             <img src="{{ public_path('imgs/logo.png') }}" alt="Logo">
-            <strong>KEBABÖTICS</strong>
         </div>
         <div class="header-right">
-            <p><strong>{{ __('general.fechafact') }}:</strong> {{ \Carbon\Carbon::parse($pedido->fecha)->format('Y-m-d') }}</p>
-            <p><strong>{{ __('general.numfact') }}:</strong> {{ $pedido->numero_pedido }}</p>
+            <p><strong>{{ __('general.fechafact') }}</strong> {{ \Carbon\Carbon::parse($pedido->fecha)->format('Y-m-d') }}</p>
+            <p><strong>{{ __('general.numfact') }}</strong> {{ $pedido->numero_pedido }}</p>
         </div>
     </div>
 
@@ -58,6 +57,7 @@
             <img src="{{ $qrurl }}" alt="QR">
         </div>
         <div class="instrucciones">
+            <h3 class="ins">{{__('general.instrucciones')}}</h3>
             @include('partials.instrucciones')
         </div>
     </div>
