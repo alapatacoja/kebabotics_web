@@ -9,6 +9,10 @@ use PDF;
 use App\Models\Pedido;
 use App\Models\Kebab;
 use Carbon\Carbon;
+use PhpMqtt\Client\MqttClient;
+use PhpMqtt\Client\ConnectionSettings;
+use App\Services\MqttService;
+
 
 class PedidoController extends Controller
 {
@@ -102,6 +106,9 @@ class PedidoController extends Controller
             $kebab->precio = $item['precio'];
             $kebab->save();
         }
+
+        $pedido->load('kebabs');
+        MqttService::publicarPedido($pedido);
 
         session()->forget('carrito');
         return redirect()->route('factura.mostrar', $pedido);
