@@ -52,91 +52,37 @@ body {
 }
 .bottom .qr {
   width: 30%;
+  text-align: center;
+  margin: 1em auto;
 }
 .bottom .qr img {
   width: 100%;
   max-width: 150px;
 }
 
-.ins {
-  color: #c90405;
-  text-transform: uppercase;
+.roadmap-container {
   text-align: center;
+  border: dotted black;
+  padding: 1em;
+  padding-bottom: 2em;
+}
+.roadmap-container .ins {
+  color: #f80b0f;
   font-size: xx-large;
+  text-align: center;
+  text-transform: uppercase;
+}
+.roadmap-container .roadmap-step h3 {
+  text-transform: uppercase;
+  color: #c90405;
+  font-size: x-large;
+}
+.roadmap-container .roadmap-step p {
+  font-size: larger;
 }
 
-.roadmap-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  margin: 5rem auto;
-  max-width: 1200px;
-  padding: 0 2rem;
-  position: relative;
-}
-.roadmap-container::before {
-  content: "";
-  position: absolute;
-  top: 20px;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, #c90405, #f80b0f);
-  z-index: -1;
-}
-.roadmap-container .roadmap-step {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  padding: 0 1.5rem;
-  flex: 1;
-}
-.roadmap-container .roadmap-step .step-number {
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(135deg, #c90405, #f80b0f);
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  border: 3px solid white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.roadmap-container .roadmap-step .step-content {
-  text-align: center;
-  padding: 1.5rem;
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-.roadmap-container .roadmap-step .step-content:hover {
-  transform: translateY(-10px);
-}
-.roadmap-container .roadmap-step .step-content h3 {
-  color: #c90405;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-  font-family: "vag", sans-serif;
-  text-transform: uppercase;
-}
-.roadmap-container .roadmap-step .step-content p {
-  color: #555;
-  line-height: 1.6;
-  font-size: 1rem;
-}
-.roadmap-container .step-arrow {
-  margin: 0 1rem;
-  color: #c90405;
-  font-size: 2rem;
-  align-self: center;
-  opacity: 0.7;
+.page-break {
+  page-break-after: always;
 }
 
 /*# sourceMappingURL=factura.css.map */
