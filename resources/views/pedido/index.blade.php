@@ -1,6 +1,13 @@
 @extends('layout')
 
 @section('content')
+<div id="popup" class="{{ $max ? 'popup-show' : '' }}">
+  <div class="popup-content">
+    <p>❌ Solo puedes pedir hasta <strong> 3 kebabs </strong>por pedido.</p>
+    <button onclick="cerrarPopup()">Aceptar</button>
+  </div>
+</div>
+
 <div class="gridkebabs">
     <h2>{{__('general.nuestros')}}</h2>
     
@@ -95,4 +102,12 @@
         </div>
     </div>
 </div>
+
+<script>
+function cerrarPopup() {
+  const popup = document.getElementById("popup");
+  popup.classList.remove("popup-show");
+  popup.style.display = "none"; // Esto sí es válido
+}
+</script>
 @endsection

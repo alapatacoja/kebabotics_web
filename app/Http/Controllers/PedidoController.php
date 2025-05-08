@@ -16,12 +16,21 @@ use App\Services\MqttService;
 
 class PedidoController extends Controller
 {
-    public function index(){
-        return view('pedido.index');
+    public function index()
+    {
+        $max = session()->pull('max', false);
+        return view('pedido.index', compact('max'));
     }
 
-    public function add(Request $request){
+
+
+    public function add(Request $request)
+    {
         $carrito = session()->get('carrito', []);
+
+        if (count($carrito) >= 3) {
+            return redirect()->route('pedido.index')->with('max', true);
+        }
 
         $carrito[] = [
             'carne' => $request->carne,
@@ -30,13 +39,14 @@ class PedidoController extends Controller
             'cebolla' => 1,
             'salsa' => 1,
             'picante' => 1,
-            'precio' => 5
+            'precio' => 5,
         ];
 
         session()->put('carrito', $carrito);
 
         return redirect()->route('pedido.index');
     }
+
 
     public function edit($kebab){
         
