@@ -20,18 +20,21 @@ class MqttService
         
         $mqtt->connect($settings, true);
 
+        $kebabs = $pedido->kebabs->map(function ($kebab) {
+            return [
+                'carne' => $kebab->carne,
+                'lechuga' => $kebab->lechuga,
+                'tomate' => $kebab->tomate,
+                'cebolla' => $kebab->cebolla,
+                'salsa' => $kebab->salsa,
+                'picante' => $kebab->picante,
+            ];
+        });
+
         $datos = [
             'numero_pedido' => $pedido->numero_pedido,
-            'kebabs' => $pedido->kebabs->map(function ($kebab) {
-                return [
-                    'carne' => $kebab->carne,
-                    'lechuga' => $kebab->lechuga,
-                    'tomate' => $kebab->tomate,
-                    'cebolla' => $kebab->cebolla,
-                    'salsa' => $kebab->salsa,
-                    'picante' => $kebab->picante,
-                ];
-            }),
+            'cantidad_kebabs' => $kebabs->count(),
+            'kebabs' => $kebabs,
         ];
 
         $mqtt->publish('pedidos', json_encode($datos), 0);
