@@ -64,5 +64,6 @@ return [
     'gracias' => 'gracias por confiar en KEBABÖTICS', 
     'ej_nombre' => 'Elvis Tek',
     'ej_review' => 'Cuéntanos tu experiencia...',
-     
+    'popup' => 'Solo puedes añadir 3 kebabs por pedido',
+    'aceptar' => 'Aceptar'
     ];

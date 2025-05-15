@@ -3,8 +3,8 @@
 @section('content')
 <div id="popup" class="{{ $max ? 'popup-show' : '' }}">
   <div class="popup-content">
-    <p>❌ Solo puedes pedir hasta <strong> 3 kebabs </strong>por pedido.</p>
-    <button onclick="cerrarPopup()">Aceptar</button>
+    <p>❌ {{__('general.popup')}}</p>
+    <button onclick="cerrarPopup()">{{__('general.aceptar')}}</button>
   </div>
 </div>
 

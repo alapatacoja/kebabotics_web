@@ -50,11 +50,21 @@ class PedidoController extends Controller
 
     public function edit($kebab){
         
+        $carrito = session()->get('carrito', []);
+
+        if (count($carrito) >= 3) {
+            return redirect()->route('pedido.index')->with('max', true);
+        }
+
         return view('pedido.edit', compact('kebab'));
     }
 
     public function update(Request $request){
         $carrito = session()->get('carrito', []);
+
+        if (count($carrito) >= 3) {
+            return redirect()->route('pedido.index')->with('max', true);
+        }
 
         $carrito[] = [
             'carne' => $request->carne,

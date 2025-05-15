@@ -64,4 +64,6 @@ return [
     'gracias' => 'thank you for trusting in KEBABÖTICS',
     'ej_nombre' => 'Chris P. Bacon',
     'ej_review' => 'Tell us your experience...',
+    'popup' => 'You can only add 3 kebabs per order.',
+    'aceptar' => 'OK'
 ];

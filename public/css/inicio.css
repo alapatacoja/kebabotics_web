@@ -144,6 +144,14 @@ li:first-child a:hover .logo-full {
   color: #c90405;
 }
 
+.lgmovil {
+  display: none;
+}
+
+.lgpc {
+  display: block;
+}
+
 .sidebar {
   position: fixed;
   top: 0;
@@ -269,6 +277,12 @@ li:first-child a:hover .logo-full {
   }
   .close {
     padding-left: 1.5em;
+  }
+  .lgmovil {
+    display: block;
+  }
+  .lgpc {
+    display: none;
   }
 }
 @media (min-width: 951px) {
@@ -849,7 +863,7 @@ li:first-child a:hover .logo-full {
 }
 
 /* Diseño Responsive */
-@media (max-width: 768px) {
+@media (max-width: 885px) {
   .editaringredientes {
     flex-direction: column;
     padding: 1.5rem;
@@ -1659,6 +1673,97 @@ li:first-child a:hover .logo-full {
   }
 }
 
+.instrucciones-roadmap {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 5rem auto;
+  padding: 0 2rem;
+}
+.instrucciones-roadmap::before {
+  content: "";
+  position: absolute;
+  left: 75px;
+  width: 4px;
+  height: calc(100% - 80px);
+  background: #c90405;
+  z-index: 1;
+}
+.instrucciones-roadmap .step {
+  position: relative;
+  display: flex;
+  margin-bottom: 5rem;
+  z-index: 2;
+  width: 100%;
+}
+.instrucciones-roadmap .step .circle {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #c90405, #f80b0f);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 2rem;
+  border: 4px solid white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 3;
+}
+.instrucciones-roadmap .step .text {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  width: calc(100% - 120px);
+  margin-left: 2rem;
+  position: relative;
+}
+.instrucciones-roadmap .step .text h3 {
+  font-family: "vag", sans-serif;
+  color: #c90405;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+.instrucciones-roadmap .step .text p {
+  color: #555;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+.instrucciones-roadmap .step img {
+  max-width: 250px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  margin-left: 2rem;
+}
+@media (max-width: 768px) {
+  .instrucciones-roadmap {
+    padding: 0 1rem;
+  }
+  .instrucciones-roadmap::before {
+    left: 40px;
+  }
+  .instrucciones-roadmap .step {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+  }
+  .instrucciones-roadmap .step .text {
+    width: 100%;
+    margin: 1.5rem 0 0 0;
+  }
+  .instrucciones-roadmap .step img {
+    max-width: 100%;
+    margin: 1rem 0 0 0;
+  }
+}
+
 /*------------------------------------------------------------------------------------*/
 /*SOBRE NOSOTRAS----------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------*/
@@ -1830,7 +1935,7 @@ li:first-child a:hover .logo-full {
   max-width: 300px;
   line-height: 1.6;
 }
-@media (max-width: 992px) {
+@media (max-width: 1094px) {
   .sobre-nosotros {
     padding: 2em 1.5em;
     gap: 2em;
@@ -1839,8 +1944,8 @@ li:first-child a:hover .logo-full {
     gap: 2em;
   }
   .sobre-nosotros .equipo .integrantes {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
   .sobre-nosotros .equipo .integrantes .persona img {
     height: 180px;

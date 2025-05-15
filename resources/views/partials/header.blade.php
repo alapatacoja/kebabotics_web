@@ -20,7 +20,16 @@
         </li>
     </ul>
     <ul>
-        <li class="logo">
+        <li class="logo lgmovil">
+            <a href="{{ route('home') }}">
+                <img src="/imgs/kababotics_limpio.png" alt="">
+                <span class="logo-container">
+                    <span class="logo-initials">KEBABÖTICS</span>
+                    <span class="logo-full">¡Hola Amigo!</span>
+                </span>
+            </a>
+        </li>
+        <li class="logo lgpc">
             <a href="{{ route('sobrenosotros') }}">
                 <img src="/imgs/kababotics_limpio.png" alt="">
                 <span class="logo-container">
