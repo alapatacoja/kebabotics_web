@@ -48,8 +48,9 @@
         </div>
         <div class="bottom">
             <div class="qr">
-                <p>{{__('general.qr')}}</p>
+                
                 <img src="{{ $qrurl }}" alt="QR">
+                <p>{{__('general.qr')}}</p>
             </div>
             <div class="page-break"></div>
                 

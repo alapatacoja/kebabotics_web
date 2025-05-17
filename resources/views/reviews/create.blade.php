@@ -3,7 +3,7 @@
 @section('content')
 <div class="review-container">
     <div class="review-image">
-        <img src="{{ asset('imgs/kebab.jpg') }}" alt="{{ __('general.imagen_review') }}">
+        <img src="{{ asset('imgs/reviews.png') }}" alt="{{ __('general.imagen_review') }}">
     </div>
 
     <form class="review-form" action="{{ route('review.store') }}" method="POST" enctype="multipart/form-data">

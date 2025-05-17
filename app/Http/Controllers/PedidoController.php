@@ -137,11 +137,15 @@ class PedidoController extends Controller
     private function generarQrSiNoExiste(Pedido $pedido)
     {
         $fecha = Carbon::parse($pedido->fecha)->format('Y-m-d');
-        $url = "PEDIDO:{$pedido->numero_pedido};FECHA:{$fecha}";
+        $datosQr = [
+            'numero_pedido' => $pedido->numero_pedido,
+            'fecha' => $fecha,
+        ];
+        $contenidoQr = json_encode($datosQr);
         $qrRelativePath = "qrs/qr_{$fecha}_{$pedido->numero_pedido}.png";
 
         if (!Storage::disk('public')->exists($qrRelativePath)) {
-            $qrImage = QrCode::format('png')->size(150)->generate($url);
+            $qrImage = QrCode::format('png')->size(150)->generate($contenidoQr);
             Storage::disk('public')->put($qrRelativePath, $qrImage);
         }
 

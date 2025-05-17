@@ -10,13 +10,12 @@ class MqttService
 {
     public static function publicarPedido($pedido)
     {
-        $server = 'localhost';
+        $server = '10.236.13.247';
         $port = 1883;
         $clientId = 'laravel-' . uniqid();
 
         $mqtt = new MqttClient($server, $port, $clientId);
         $settings = new ConnectionSettings();
-
         
         $mqtt->connect($settings, true);
 
@@ -26,8 +25,6 @@ class MqttService
                 'lechuga' => $kebab->lechuga,
                 'tomate' => $kebab->tomate,
                 'cebolla' => $kebab->cebolla,
-                'salsa' => $kebab->salsa,
-                'picante' => $kebab->picante,
             ];
         });
 
@@ -37,7 +34,7 @@ class MqttService
             'kebabs' => $kebabs,
         ];
 
-        $mqtt->publish('pedidos', json_encode($datos), 0);
+        $mqtt->publish('kebabotics/pedidos', json_encode($datos), 0);
 
         $mqtt->disconnect();
     }
