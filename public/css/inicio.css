@@ -1676,7 +1676,6 @@ li:first-child a:hover .logo-full {
 .instrucciones-roadmap {
   position: relative;
   width: 100%;
-  max-width: 1200px;
   margin: 5rem auto;
   padding: 0 2rem;
 }
