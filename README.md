@@ -1,66 +1,164 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# ![Kebabotics Logo](public/imgs/kababotics_largp.png)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Esta es la aplicación web del proyecto **Kebabötics**, desarrollada en **Laravel**, encargada de gestionar los pedidos, personalización de kebabs, pagos, generación de QR y facturas en PDF, y comunicación con la célula robótica mediante MQTT.
 
-## About Laravel
+La web forma parte del proyecto completo de automatización de la elaboración de kebabs, donde dos robots colaborativos y uno industrial preparan los pedidos de forma autónoma.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Descripción general del proyecto
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Kebabötics busca automatizar por completo el proceso de elaboración de kebabs, mejorando la eficiencia, higiene y calidad del servicio. El sistema está diseñado para:
 
-## Learning Laravel
+- Reducir tiempos de espera.  
+- Aumentar la higiene del proceso.
+- Mejorar las condiciones laborales evitando tareas repetitivas y exposición al calor.
+- Garantizar mayor regularidad en los pedidos.
+- Hacer el servicio funcional incluso en horarios nocturnos.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+La web juega un papel clave como intermediario entre el usuario y la célula robótica, permitiendo realizar y gestionar pedidos, y enviándolos a la línea automatizada mediante MQTT.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+##  Funcionalidades de la página web
 
-## Laravel Sponsors
+La web incluye:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+###  **Sistema de pedidos de kebab**
+- Elegir tipo de carne: **pollo**, **ternera** o **mixto**.
+- Personalización avanzada de ingredientes (añadir, quitar o modificar).
+- Actualización del precio según extras.
 
-### Premium Partners
+###  **Carrito y pago**
+- Resumen de pedidos.
+- Proceso de pago simulado.
+- Confirmación del pedido.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+###  **Generación de QR**
+- Al completar un pedido, el sistema genera un **QR único** para recogerlo.
+- El QR se envía al sistema robótico para saber qué pedido preparar.
 
-## Contributing
+###  **Generación de factura en PDF**
+- PDF con los datos del pedido.
+- El QR también está incluido en la factura.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+###  **Sistema de reseñas**
+- Tras completar un pedido, el usuario puede dejar una valoración.
 
-## Code of Conduct
+###  **Página “Sobre Kebabötics”**
+- Descripción del proyecto.
+- Equipo de desarrollo.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+##  Tecnologías utilizadas
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- **Laravel**
+- **PHP**
+- **MySQL**
+- **MQTT (Mosquitto + MQTTX)**
+- **Composer**
+- **RoboDK** (parte del sistema completo)
+- **Arduino IDE** (para las placas)
+- **XAMPP**
+- **Git**
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+##  Instalación (solo parte web)
+
+### 1. Clonar el repositorio
+
+```
+git clone https://github.com/alapatacoja/kebabotics_web.git
+```
+
+### 2. Instalar dependencias
+
+```
+composer install
+```
+
+### 3. Crear archivo .env
+
+```
+cp .env.example .env
+```
+
+Configura en él tu base de datos:
+
+```
+DB_DATABASE=nombre
+DB_USERNAME=usuario
+DB_PASSWORD=contraseña
+```
+
+### 4. Generar key y migraciones
+
+```
+php artisan key:generate
+php artisan migrate
+```
+
+### 5. Instalar librerías para QR y facturas
+
+```
+composer require simplesoftwareio/simple-qrcode
+composer require barryvdh/laravel-dompdf
+```
+
+Para evitar errores con imágenes en PDFs, puede requerirse instalar **Imagick**:  
+Guía oficial → https://mlocati.github.io/articles/php-windows-imagick.html
+
+### 6. Crear enlace a storage
+
+```
+php artisan storage:link
+```
+
+### 7. Iniciar servidor local
+
+En XAMPP, inicia **Apache** y **MySQL**, y luego:
+
+```
+php artisan serve --host=0.0.0.0 --port=8000
+```
+
+---
+
+##  Configuración de MQTT (para comunicación con la célula robótica)
+
+- Encender zona WiFi 2.4GHz en tu dispositivo.
+- Obtener tu IP local (ipconfig → IPv4 Wi-Fi).
+- Usar esa IP para configurar MQTTX y Mosquitto.
+- Crear los topics:
+
+```
+kebabotics/pedidos
+kebabotics/qr
+kebabotics/listos
+kebabotics/entregados
+kebabotics/emergencia
+```
+
+También es necesario modificar la IP en:
+
+- `app/services/MqttService.php`
+- `app/console/commands/escucharentregados.php`
+- Scripts de RoboDK (`sincronizacion.py`, `MAIN_fase2.py`)
+- Código de Arduino para las placas
+
+---
+
+## Puesta en marcha del sistema completo
+
+1. Ejecutar **Mosquitto** y conectar en **MQTTX**.  
+2. Subir el código a las placas desde **Arduino IDE**.  
+3. Ejecutar la web con `php artisan serve`.  
+4. En otra terminal, iniciar el listener MQTT:
+
+```
+php artisan mqtt:escucharentregados
+```
+
+---
